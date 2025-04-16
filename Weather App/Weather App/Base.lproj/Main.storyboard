@@ -166,22 +166,22 @@
                                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="viewDetails" destination="aUU-eO-54C" eventType="touchDown" id="TNo-ON-EHZ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chance of Precipitation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFD-kn-qb7">
-                                        <rect key="frame" x="228" y="25.999999999999996" width="142" height="15.333333333333332"/>
+                                        <rect key="frame" x="247" y="25.999999999999996" width="123" height="15.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Low/High" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDY-Xc-JsT">
-                                        <rect key="frame" x="89" y="34" width="49" height="14"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nae-BR-2dg">
-                                        <rect key="frame" x="78" y="17" width="71.666666666666686" height="14"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="Current Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nae-BR-2dg">
+                                        <rect key="frame" x="74" y="17" width="83" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="uJb-hl-SUs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -191,24 +191,32 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZrV-qw-R4Z">
+                                        <rect key="frame" x="36" y="14" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Low/High" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDY-Xc-JsT">
+                                        <rect key="frame" x="91" y="32" width="48.666666666666657" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="qHP-tL-5N8"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="qFD-kn-qb7" firstAttribute="leading" secondItem="Nae-BR-2dg" secondAttribute="trailing" constant="78.329999999999998" id="2YZ-bP-eQi"/>
                                     <constraint firstItem="ZW3-Pb-Aeh" firstAttribute="bottom" secondItem="qFD-kn-qb7" secondAttribute="bottom" constant="27" id="2qp-6g-6Fc"/>
-                                    <constraint firstItem="Nae-BR-2dg" firstAttribute="leading" secondItem="ZW3-Pb-Aeh" secondAttribute="leading" constant="71" id="FEH-q8-9Ml"/>
+                                    <constraint firstItem="qFD-kn-qb7" firstAttribute="leading" secondItem="Nae-BR-2dg" secondAttribute="trailing" constant="94" id="B1S-Eh-4lr"/>
                                     <constraint firstItem="qFD-kn-qb7" firstAttribute="trailing" secondItem="ZW3-Pb-Aeh" secondAttribute="trailing" constant="-16" id="Fg0-oV-MIk"/>
                                     <constraint firstItem="k6l-i0-Drp" firstAttribute="bottom" secondItem="ZW3-Pb-Aeh" secondAttribute="bottom" constant="-19.666666666666593" id="IrN-OM-zjl"/>
                                     <constraint firstItem="qFD-kn-qb7" firstAttribute="top" secondItem="ZW3-Pb-Aeh" secondAttribute="top" constant="27" id="Jlr-VO-ap2"/>
-                                    <constraint firstItem="iDY-Xc-JsT" firstAttribute="bottom" secondItem="ZW3-Pb-Aeh" secondAttribute="bottom" constant="-20.329999999999998" id="Saq-zw-UFH"/>
-                                    <constraint firstItem="iDY-Xc-JsT" firstAttribute="top" secondItem="Nae-BR-2dg" secondAttribute="bottom" constant="3" id="UbO-R2-kuu"/>
+                                    <constraint firstItem="iDY-Xc-JsT" firstAttribute="top" secondItem="qHP-tL-5N8" secondAttribute="top" id="PfQ-am-fhq"/>
                                     <constraint firstItem="k6l-i0-Drp" firstAttribute="top" secondItem="ZW3-Pb-Aeh" secondAttribute="top" constant="40" id="bLm-io-8Rb"/>
+                                    <constraint firstItem="Nae-BR-2dg" firstAttribute="centerY" secondItem="ZrV-qw-R4Z" secondAttribute="centerY" id="dTf-tB-Stf"/>
+                                    <constraint firstItem="ZrV-qw-R4Z" firstAttribute="centerX" secondItem="k6l-i0-Drp" secondAttribute="centerX" id="e4T-S5-MW7"/>
                                     <constraint firstItem="k6l-i0-Drp" firstAttribute="leading" secondItem="ZW3-Pb-Aeh" secondAttribute="leading" constant="16" id="eWO-pg-EX4"/>
-                                    <constraint firstItem="qFD-kn-qb7" firstAttribute="leading" secondItem="iDY-Xc-JsT" secondAttribute="trailing" constant="90" id="fyz-vB-alB"/>
-                                    <constraint firstItem="iDY-Xc-JsT" firstAttribute="leading" secondItem="ZW3-Pb-Aeh" secondAttribute="leading" constant="82" id="oVt-0e-k8L"/>
-                                    <constraint firstItem="Nae-BR-2dg" firstAttribute="top" secondItem="ZW3-Pb-Aeh" secondAttribute="top" constant="18" id="oui-gr-wtA"/>
-                                    <constraint firstItem="iDY-Xc-JsT" firstAttribute="leading" secondItem="k6l-i0-Drp" secondAttribute="trailing" constant="20" id="tL5-Yv-kwY"/>
+                                    <constraint firstItem="k6l-i0-Drp" firstAttribute="top" secondItem="ZrV-qw-R4Z" secondAttribute="bottom" constant="5" id="kPz-hP-to3"/>
+                                    <constraint firstItem="iDY-Xc-JsT" firstAttribute="leading" secondItem="ZW3-Pb-Aeh" secondAttribute="leading" constant="80" id="oVt-0e-k8L"/>
+                                    <constraint firstItem="Nae-BR-2dg" firstAttribute="centerX" secondItem="iDY-Xc-JsT" secondAttribute="centerX" id="pc2-dS-pTa"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -219,6 +227,7 @@
                         <outlet property="chanceOfPrecipitationLabel" destination="qFD-kn-qb7" id="hBj-98-mhu"/>
                         <outlet property="currentTempLabel" destination="Nae-BR-2dg" id="Zh7-Gq-cwp"/>
                         <outlet property="lowHighTempLabel" destination="iDY-Xc-JsT" id="AHz-2S-PeB"/>
+                        <outlet property="viewDetailsButton" destination="ZW3-Pb-Aeh" id="KAg-cP-xhv"/>
                         <outlet property="weatherDescriptionLabel" destination="k6l-i0-Drp" id="uRF-Wk-KOh"/>
                     </connections>
                 </viewController>
@@ -349,7 +358,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AMr-Vw-BF2"/>
+        <segue reference="LEG-dZ-Whl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
