@@ -10,6 +10,7 @@ import SwiftUI
 import CoreLocation
 
 var days = [DayView]()
+var detailsViews = [DetailsView]()
 
 struct WeatherData: Codable {
     let current: Current
@@ -29,6 +30,7 @@ struct WeatherData: Codable {
         let cloud_cover_mean: [Float]
         let wind_speed_10m_max: [Float]
         let wind_direction_10m_dominant: [Float]
+        let relative_humidity_2m_mean: [Float]
     }
 }
 
@@ -48,7 +50,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locManager.delegate = self
         locManager.startMonitoringSignificantLocationChanges()
         locManager.requestLocation()
-            
+    
         fetchWeatherData()
     }
     
@@ -70,17 +72,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Handle failure to get a user’s location
         print(error)
     }
-
-
-
-    
     
     func fetchWeatherData()
     {
-        // let apiKey: String = "bfbf4f27dd5879cb9ed45a2afb2f7b8b"
-        // let urlString: String = "https://api.openweathermap.org/data/3.0/onecall/?lat=40.79&lon=77.86&appid=\(apiKey)"
-        
-        let urlString: String = "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&daily=temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,precipitation_probability_mean,cloud_cover_mean&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch"
+        let urlString: String = "https://api.open-meteo.com/v1/forecast?latitude=\(latitude)&longitude=\(longitude)&daily=temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,precipitation_probability_mean,cloud_cover_mean,weather_code,relative_humidity_2m_mean&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch"
         guard let url = URL(string: urlString) else { return }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -109,10 +104,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         task.resume()
     }
     
-
+    
     func processData(data: WeatherData){
         for day in days{
-            let index = days.firstIndex(of: day)!
+            let index = (days.firstIndex(of: day)!) % 7
             
             day.lowHighTempLabel.text =
             "\(data.daily.temperature_2m_min[index])° / \(data.daily.temperature_2m_max[index])°"
@@ -126,16 +121,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             day.chanceOfPrecipitationLabel.text = "\(data.daily.precipitation_probability_mean[index])% chance of \(currentTemp >= 32 ? "rain" : "snow")"
             
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEEE"
             
             let dayOfWeek = dateFormatter.string(from: Date().addingTimeInterval(TimeInterval(86400 * index)))
-        
+            
             day.viewDetailsButton.setTitle(dayOfWeek, for: .normal)
         }
     }
-
+    
     func getWeatherDescription(data: WeatherData, day: Int) -> String {
         let cloudCover = data.daily.cloud_cover_mean[day]
         let precipitationProbability = data.daily.precipitation_probability_mean[day]
@@ -157,12 +151,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         return weatherDescription
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if let labelVC = segue.destination as? DayView{
             days.append(labelVC)
-            print(days.count)
+        }
+        if segue.identifier == "DetailsController" {
+            if let detailsVC = segue.destination as? DetailsView {
+                detailsVC.windView = WindView()
+                detailsVC.humidityView = HumidityView()
+                detailsVC.precipitationView = PrecipitionView()
+                detailsVC.day = days.firstIndex(of: sender as! DayView)
+                detailsViews.append(detailsVC)
+            }
         }
     }
 }
@@ -176,6 +177,50 @@ class DayView: UIViewController {
     @IBAction func viewDetails(){
         
     }
+    @IBOutlet var icon: UIImage!
 }
 
+    
+class DetailsView: UIViewController {
+    @IBOutlet var windView: WindView!
+    @IBOutlet var humidityView: HumidityView!
+    @IBOutlet var precipitationView: PrecipitionView!
+    
+    
+    var data: WeatherData!
+    var day: Int!
+    
+    @IBAction func backButtonPressed() {
+        
+    }
+    
+    override func viewDidLoad() {
+        updateUI(detailsView: self, data: data)
+    }
+    
+    
+}
 
+func updateUI(detailsView: DetailsView, data: WeatherData){
+    detailsView.windView.windDirectionLabel.text = "\(data.daily.wind_direction_10m_dominant[detailsView.day])"
+    detailsView.windView.windSpeedLabel.text = "\(data.current.wind_speed_10m)"
+    
+    detailsView.humidityView.humidityLabel.text = "\(data.daily.relative_humidity_2m_mean[detailsView.day])"
+    
+    detailsView.precipitationView.precipitationPercentageLabel.text = "\(data.daily.precipitation_probability_mean[detailsView.day])"
+}
+
+class WindView: UIViewController {
+    @IBOutlet var windSpeedLabel: UILabel!
+    @IBOutlet var windDirectionLabel: UILabel!
+}
+
+class HumidityView: UIViewController {
+    @IBOutlet var humidityLabel: UILabel!
+}
+
+class PrecipitionView: UIViewController {
+    @IBOutlet var precipitationPercentageLabel: UILabel!
+    @IBOutlet var precipitationTimeLabel: UILabel!
+}
+    

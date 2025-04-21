@@ -13,56 +13,56 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="UAl-c5-dmH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35m-qf-vsg">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="isd-Qw-3ou">
-                                        <rect key="frame" x="0.0" y="480" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="-302" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="aUU-eO-54C" kind="embed" identifier="Four" id="LEG-dZ-Whl"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wua-zT-rrP">
-                                        <rect key="frame" x="0.0" y="402" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="-380" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="aUU-eO-54C" kind="embed" identifier="Three" id="jWe-qk-pvQ"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RkZ-Zf-gKX">
-                                        <rect key="frame" x="0.0" y="324" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="-458" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="aUU-eO-54C" kind="embed" identifier="Two" id="v3z-8J-JaI"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-oN-JFj">
-                                        <rect key="frame" x="0.0" y="246" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="-536" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="aUU-eO-54C" kind="embed" identifier="One" id="AMr-Vw-BF2"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3f-Ro-z5j">
-                                        <rect key="frame" x="0.0" y="636" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="-146" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="aUU-eO-54C" kind="embed" identifier="Six" id="lLJ-du-Th2"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1UF-dn-Uzi">
-                                        <rect key="frame" x="0.0" y="558" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="-224" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="aUU-eO-54C" kind="embed" identifier="Five" id="7ia-bf-ITc"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TvD-9U-xB5">
-                                        <rect key="frame" x="0.0" y="714" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="-68" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="aUU-eO-54C" kind="embed" identifier="Seven" id="cE1-5g-Ybb"/>
@@ -81,17 +81,18 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mZ0-L5-HTL"/>
                     </stackView>
+                    <navigationItem key="navigationItem" id="Cg1-et-CZC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-245.03816793893128" y="-25.35211267605634"/>
         </scene>
-        <!--View Controller-->
+        <!--Details Controller-->
         <scene sceneID="T3c-cA-0Kv">
             <objects>
-                <viewController id="7OM-al-yP0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsController" id="7OM-al-yP0" customClass="DetailsController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="frd-sh-SBc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blK-eH-pgo">
@@ -108,31 +109,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDw-MM-QMa">
-                                <rect key="frame" x="41" y="350" width="312" height="152"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="t7S-DY-hLL" kind="embed" id="M7i-T8-XLO"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CG5-PB-2Kz">
-                                <rect key="frame" x="41" y="510" width="152" height="152"/>
+                                <rect key="frame" x="41" y="-272" width="152" height="152"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="bml-sS-Ek1" kind="embed" id="61w-ey-u71"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIU-0i-MEM">
-                                <rect key="frame" x="201" y="510" width="152" height="152"/>
+                                <rect key="frame" x="201" y="-272" width="152" height="152"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="WJl-rW-66T" kind="embed" id="Ela-Ga-YRE"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqX-ui-n3h">
+                                <rect key="frame" x="32" y="59" width="62" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed" destination="cMZ-nF-IAd" eventType="touchDown" id="8rZ-2Y-HBs"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ocr-Ed-yYE"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDw-MM-QMa">
+                                <rect key="frame" x="41" y="-432" width="312" height="152"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="t7S-DY-hLL" kind="embed" id="M7i-T8-XLO"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="epe-hc-Cei"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5Us-sd-mhv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMZ-nF-IAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7-Day Forecast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kJ1-SN-jq4">
@@ -143,7 +155,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="530.53435114503816" y="-25.35211267605634"/>
+            <point key="canvasLocation" x="537" y="-11"/>
         </scene>
         <!--Day View-->
         <scene sceneID="6Ql-iW-CQ5">
@@ -167,7 +179,8 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="viewDetails" destination="aUU-eO-54C" eventType="touchDown" id="TNo-ON-EHZ"/>
+                                            <action selector="viewDetails" destination="aUU-eO-54C" eventType="touchDown" id="DPG-jN-TSF"/>
+                                            <segue destination="7OM-al-yP0" kind="show" id="tcg-QV-bUc"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chance of Precipitation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFD-kn-qb7">
@@ -233,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSG-wj-JTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1109.1603053435115" y="272.53521126760563"/>
+            <point key="canvasLocation" x="-244" y="439"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jGF-2u-9Ns">
@@ -262,6 +275,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="sqV-2H-fWg"/>
                         <color key="backgroundColor" red="0.31705284955403357" green="0.41117352402119567" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="v2o-NH-BUH" secondAttribute="bottom" constant="14" id="1WN-LG-Gv7"/>
@@ -281,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAx-Yn-BZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="440"/>
+            <point key="canvasLocation" x="536" y="439"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hKc-FA-4oD">
@@ -304,6 +318,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="tX0-7f-dfI"/>
                         <color key="backgroundColor" red="0.31812453270000002" green="0.4131636024" blue="0.99951094389999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Iuh-xO-nud" firstAttribute="leading" secondItem="b4N-QV-cst" secondAttribute="leading" constant="10" id="JmJ-Iy-DCU"/>
@@ -343,6 +358,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="e4G-Iw-EyP"/>
                         <color key="backgroundColor" red="0.31812453270000002" green="0.4131636024" blue="0.99951094389999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ngg-VT-VsC" firstAttribute="leading" secondItem="q7u-ul-cZN" secondAttribute="leading" constant="10" id="EIW-kh-G6G"/>
