@@ -10,7 +10,12 @@ import SwiftUI
 import CoreLocation
 
 var days = [DayView]()
-var detailsViews = [DetailsView]()
+var detailsView: DetailsView!
+var windView: WindView!
+var humidityView: HumidityView!
+var precipitationView: PrecipitationView!
+
+var weatherData: WeatherData!
 
 struct WeatherData: Codable {
     let current: Current
@@ -92,6 +97,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 let weatherResponse = try decoder.decode(WeatherData.self, from: data)
                 
                 DispatchQueue.main.async{
+                    weatherData = weatherResponse
                     self.processData(data: weatherResponse)
                 }
                 
@@ -160,9 +166,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if let detailsVC = segue.destination as? DetailsView {
                 detailsVC.windView = WindView()
                 detailsVC.humidityView = HumidityView()
-                detailsVC.precipitationView = PrecipitionView()
+                detailsVC.precipitationView = PrecipitationView()
                 detailsVC.day = days.firstIndex(of: sender as! DayView)
-                detailsViews.append(detailsVC)
             }
         }
     }
@@ -182,10 +187,9 @@ class DayView: UIViewController {
 
     
 class DetailsView: UIViewController {
-    @IBOutlet var windView: WindView!
-    @IBOutlet var humidityView: HumidityView!
-    @IBOutlet var precipitationView: PrecipitionView!
-    
+    @IBOutlet var windView: WindView! = WindView()
+    @IBOutlet var humidityView: HumidityView! = HumidityView()
+    @IBOutlet var precipitationView: PrecipitationView! = PrecipitationView()
     
     var data: WeatherData!
     var day: Int!
@@ -195,32 +199,53 @@ class DetailsView: UIViewController {
     }
     
     override func viewDidLoad() {
-        updateUI(detailsView: self, data: data)
+        detailsView = self
+        // Thread.detachNewThread {
+        //    Thread.sleep(forTimeInterval: 10)
+        //    if (windView != nil && humidityView != nil && precipitationView != nil) {
+        //        updateUI()
+        //    }
+        // }
+        updateUI()
     }
     
-    
+    func updateUI()
+    {
+        windView.windDirectionLabel.text =                          "\(weatherData.daily.wind_direction_10m_dominant[self.day])"
+        windView.windSpeedLabel.text = "\(weatherData.current.wind_speed_10m)"
+        
+        humidityView.humidityLabel.text = "\(weatherData.daily.relative_humidity_2m_mean[self.day])"
+        
+        precipitationView.precipitationPercentageLabel.text = "\(weatherData.daily.precipitation_probability_mean[self.day])"
+        
+        print("test")
+    }
 }
 
-func updateUI(detailsView: DetailsView, data: WeatherData){
-    detailsView.windView.windDirectionLabel.text = "\(data.daily.wind_direction_10m_dominant[detailsView.day])"
-    detailsView.windView.windSpeedLabel.text = "\(data.current.wind_speed_10m)"
-    
-    detailsView.humidityView.humidityLabel.text = "\(data.daily.relative_humidity_2m_mean[detailsView.day])"
-    
-    detailsView.precipitationView.precipitationPercentageLabel.text = "\(data.daily.precipitation_probability_mean[detailsView.day])"
-}
 
 class WindView: UIViewController {
     @IBOutlet var windSpeedLabel: UILabel!
     @IBOutlet var windDirectionLabel: UILabel!
+    
+    override func viewDidLoad() {
+        windView = self
+    }
 }
 
 class HumidityView: UIViewController {
     @IBOutlet var humidityLabel: UILabel!
+    
+    override func viewDidLoad() {
+        humidityView = self
+    }
 }
 
-class PrecipitionView: UIViewController {
+class PrecipitationView: UIViewController {
     @IBOutlet var precipitationPercentageLabel: UILabel!
     @IBOutlet var precipitationTimeLabel: UILabel!
+    
+    override func viewDidLoad() {
+        precipitationView = self
+    }
 }
     

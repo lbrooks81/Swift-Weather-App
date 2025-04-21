@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="-245.03816793893128" y="-25.35211267605634"/>
         </scene>
-        <!--Details Controller-->
+        <!--Details View-->
         <scene sceneID="T3c-cA-0Kv">
             <objects>
-                <viewController storyboardIdentifier="DetailsController" id="7OM-al-yP0" customClass="DetailsController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsController" id="7OM-al-yP0" customClass="DetailsView" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="frd-sh-SBc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,7 +180,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="viewDetails" destination="aUU-eO-54C" eventType="touchDown" id="DPG-jN-TSF"/>
-                                            <segue destination="7OM-al-yP0" kind="show" id="tcg-QV-bUc"/>
+                                            <segue destination="7OM-al-yP0" kind="show" id="xj2-PV-0Q9"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chance of Precipitation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFD-kn-qb7">
@@ -248,10 +248,10 @@
             </objects>
             <point key="canvasLocation" x="-244" y="439"/>
         </scene>
-        <!--View Controller-->
+        <!--Wind View-->
         <scene sceneID="jGF-2u-9Ns">
             <objects>
-                <viewController id="t7S-DY-hLL" sceneMemberID="viewController">
+                <viewController id="t7S-DY-hLL" customClass="WindView" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zX4-Gs-9mU">
                         <rect key="frame" x="0.0" y="0.0" width="312" height="152"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,15 +292,19 @@
                             <constraint firstItem="v2o-NH-BUH" firstAttribute="leading" secondItem="zX4-Gs-9mU" secondAttribute="leading" constant="40" id="phd-hX-LoC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="windDirectionLabel" destination="v2o-NH-BUH" id="vVi-dL-hNB"/>
+                        <outlet property="windSpeedLabel" destination="5Dv-yh-cP7" id="fvM-3b-QQO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAx-Yn-BZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="536" y="439"/>
         </scene>
-        <!--View Controller-->
+        <!--Humidity View-->
         <scene sceneID="hKc-FA-4oD">
             <objects>
-                <viewController id="bml-sS-Ek1" sceneMemberID="viewController">
+                <viewController id="bml-sS-Ek1" customClass="HumidityView" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b4N-QV-cst">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,15 +330,18 @@
                             <constraint firstItem="fEQ-dc-63l" firstAttribute="leading" secondItem="b4N-QV-cst" secondAttribute="leading" constant="40" id="esn-Se-FJb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="humidityLabel" destination="fEQ-dc-63l" id="dSh-qv-elm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4Y-A3-0f7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="415" y="585"/>
         </scene>
-        <!--View Controller-->
+        <!--Precipitation View-->
         <scene sceneID="B2b-47-KvF">
             <objects>
-                <viewController id="WJl-rW-66T" sceneMemberID="viewController">
+                <viewController id="WJl-rW-66T" customClass="PrecipitationView" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q7u-ul-cZN">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,6 +374,9 @@
                             <constraint firstItem="ncX-uc-Gua" firstAttribute="leading" secondItem="q7u-ul-cZN" secondAttribute="leading" constant="40" id="ohr-Bp-LO8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="precipitationPercentageLabel" destination="LFI-tZ-YwQ" id="vkJ-tk-20h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8o-A4-Kjr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
