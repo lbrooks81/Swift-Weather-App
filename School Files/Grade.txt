@@ -1,0 +1,16 @@
+93/100
+
+Categories
+
+Effort - 22/25
+
+Constraints Met - 25/25
+
+UI/UX - 28/30
+I'm a fan of minimalistic UI (to an extent) so I think the application looks nice! The only thing I would improve is the home screen which is too empty. 
+An icon or different font would make a huge difference.
+
+Bug-Free - 8/10
+- (-2) "Slight rain" is missing an icon.
+
+Source Code Cleanliness - 10/10
